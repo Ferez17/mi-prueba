@@ -1,38 +1,165 @@
-.App {
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #4b0082, #2e003e);
+  overflow: hidden;
+  height: 100vh;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contenedor {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Asegura que ocupe toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Capa de brillos detrás */
+.cielo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Mensaje centrado */
+.mensaje {
+  position: relative;
+  z-index: 2;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.titulo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #e0b3ff;
+  text-shadow: 0 0 10px #b366ff;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #ffe6ff;
+  text-shadow: 0 0 8px #b366ff;
+  margin-bottom: 2rem;
+}
+
+.boton {
+  background: linear-gradient(90deg, #ff00cc, #6600ff);
+  border: none;
+  border-radius: 25px;
   color: white;
+  padding: 12px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px #b366ff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.boton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff66ff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 🌟 Brillos tipo estrellas con parpadeo suave */
+.brillo {
+  position: absolute;
+  background: radial-gradient(circle, #fff 0%, #d9b3ff 40%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 6px #fff, 0 0 12px #b366ff, 0 0 20px #6600ff;
+  animation: parpadeo 2.5s infinite ease-in-out;
+}
+
+@keyframes parpadeo {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.6); }
+  100% { opacity: 0.4; transform: scale(1); }
+}
+
+/* Animaciones para el mensaje de amor */
+/* Modal romántico */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(75, 0, 130, 0.85); /* morado translúcido */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  text-align: center;
+  cursor: pointer;
+  animation: aparecer 1s ease forwards;
+}
+
+.teQuiero {
+  font-family: 'Great Vibes', cursive;
+  font-size: 8rem;
+  color: #ffb3ff;
+  text-shadow: 0 0 15px #ff66ff, 0 0 30px #b366ff;
+  margin-bottom: 1rem;
+  animation: latido 2s infinite ease-in-out;
+}
+
+.corazon-con-estrellas {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
+.corazon {
+  font-size: 6rem;
+  animation: latido 1.5s infinite ease-in-out;
+  text-shadow: 0 0 20px #ff66ff, 0 0 40px #b366ff;
+  position: relative;
+  z-index: 2;
+}
+
+/* Estrellas brillantes alrededor del corazón */
+.estrella {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff 0%, #ffccff 40%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #ff66ff;
+  animation: destello 2s infinite alternate;
+  z-index: 1;
+}
+
+.cerrar {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #f3e5ff;
+  opacity: 0.7;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+@keyframes destello {
+  from { opacity: 0.4; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.5); }
 }
