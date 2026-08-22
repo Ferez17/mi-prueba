@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/mi-prueba/static/css/main.9470909e.css",
-    "main.js": "/mi-prueba/static/js/main.0e416ce8.js",
+    "main.css": "/mi-prueba/static/css/main.15589660.css",
+    "main.js": "/mi-prueba/static/js/main.653ea330.js",
     "static/js/453.c62cff1f.chunk.js": "/mi-prueba/static/js/453.c62cff1f.chunk.js",
-    "static/media/logo.svg": "/mi-prueba/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/patronum1.png": "/mi-prueba/static/media/patronum1.51a4ea6a8d720fa26746.png",
+    "static/media/Flores2.png": "/mi-prueba/static/media/Flores2.514b6cce01b9319f3db4.png",
     "index.html": "/mi-prueba/index.html",
-    "main.9470909e.css.map": "/mi-prueba/static/css/main.9470909e.css.map",
-    "main.0e416ce8.js.map": "/mi-prueba/static/js/main.0e416ce8.js.map",
+    "main.15589660.css.map": "/mi-prueba/static/css/main.15589660.css.map",
+    "main.653ea330.js.map": "/mi-prueba/static/js/main.653ea330.js.map",
     "453.c62cff1f.chunk.js.map": "/mi-prueba/static/js/453.c62cff1f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9470909e.css",
-    "static/js/main.0e416ce8.js"
+    "static/css/main.15589660.css",
+    "static/js/main.653ea330.js"
   ]
 }
