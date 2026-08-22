@@ -1,12 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
+import flores from "./img/Flores2.png";
+import patronum from "./img/patronum1.png";
 
 function App() {
-    const [mostrarModal, setMostrarModal] = useState(false);
-  const brillos = Array.from({ length: 80 });
+  const [modalActivo, setModalActivo] = useState(null);
+  const brillos = Array.from({ length: 500 });
+
+
   return (
     <div className="contenedor">
+      {/* Fondo con brillos */}
       <div className="cielo">
         {brillos.map((_, i) => (
           <div
@@ -24,46 +28,65 @@ function App() {
         ))}
       </div>
 
-      {!mostrarModal && (
+      {/* Mensaje y botones */}
+      {!modalActivo && (
         <div className="mensaje">
-          <h1 className="titulo">Para Ti, Con Todo Mi Cariño 💜</h1>
-          <p className="subtitulo">Eres la persona más especial para mí</p>
-          <button className="boton" onClick={() => setMostrarModal(true)}>
-            !MUAAAAAAK¡
-          </button>
+          <h1 className="titulo">Elige tu sorpresa ✨</h1>
+          <p className="subtitulo">Con mucho cariño amor</p>
+          <div className="botones">
+            <button className="boton" onClick={() => setModalActivo("cinnamoroll")}>
+              Muak 1
+            </button>
+            <button className="boton" onClick={() => setModalActivo("harry")}>
+              Muak 2
+            </button>
+          </div>
         </div>
       )}
 
-      {mostrarModal && (
-        <div className="modal" onClick={() => setMostrarModal(false)}>
-          <h7 className="teQuiero">Te quiero</h7>
-          <div className="corazon-con-estrellas">
-            <div className="corazon">💜</div>
-            {/* Estrellas siguiendo la forma del corazón */}
-            {Array.from({ length: 40 }).map((_, i) => {
-              const t = (i / 40) * Math.PI * 2; // ángulo paramétrico
-              // Fórmula paramétrica del corazón
-              const x = 16 * Math.pow(Math.sin(t), 3);
-              const y =
-                13 * Math.cos(t) -
-                5 * Math.cos(2 * t) -
-                2 * Math.cos(3 * t) -
-                Math.cos(4 * t);
-
-              return (
-                <div
-                  key={i}
-                  className="estrella"
-                  style={{
-                    top: `${68 - y * 4.3}px`,   // 🔑 invertimos el eje Y
-                    left: `${95 + x * 4.1}px`,
-                    animationDelay: `${Math.random() * 2}s`
-                  }}
-                />
-              );
-            })}
+      {/* Modal Cinnamoroll */}
+      {modalActivo === "cinnamoroll" && (
+        <div className="modal" onClick={() => setModalActivo(null)}>
+          <h2 className="teQuiero">Cinnamoroll 💙</h2>
+          <p className="subtitulo">Nunca serán suficientes</p>
+          <p className="subtitulo">Mereces todas las flores del mundo</p>
+          <div className="imagenes">
+            <img
+              src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXVpeGFmZWtoaHp5azk2MGpnM2s5c2MweWN2Z2VxeTFxczBwbHE2cyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/S9dN0rKztj3YyKxpr8/giphy.gif"
+              alt="Cinnamoroll"
+              className="gif"
+            />
+            <img src={flores} alt="Flores" className="FlowersCinnamoroll" />
+          <img
+            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXVpeGFmZWtoaHp5azk2MGpnM2s5c2MweWN2Z2VxeTFxczBwbHE2cyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/S9dN0rKztj3YyKxpr8/giphy.gif"
+            alt="Cinnamoroll"
+            className="gifInvertido"
+          />
           </div>
-          <p className="cerrar">(muak muak muak muak)</p>
+          <p className="cerrar">(muak siempre hay formas de regalar flores)</p>
+        </div>
+      )}
+
+      {/* Modal Harry Potter */}
+      {modalActivo === "harry" && (
+        <div className="modal" onClick={() => setModalActivo(null)}>
+          <h2 className="teQuiero">Harry Potter ✨</h2>
+          <p className="subtitulo">Nunca serán suficientes</p>
+          <p className="subtitulo">Mereces todas las flores del mundo</p>
+          <div className="imagenes">
+            <img
+              src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2NuZG9vdmphcDE0anMyYjJtY3BveTRrNnpsYWttd2RqMXE0bDVzcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lVBUOl3PAlN7i/giphy.gif"
+              alt="Cinnamoroll"
+              className="gif"
+            />
+            <img src={patronum} alt="Flores" className="FlowersCinnamoroll" />
+          <img
+            src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2NuZG9vdmphcDE0anMyYjJtY3BveTRrNnpsYWttd2RqMXE0bDVzcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lVBUOl3PAlN7i/giphy.gif"
+            alt="Cinnamoroll"
+            className="gifInvertido"
+          />
+          </div>
+          <p className="cerrar">(muak siempre hay formas de regalar flores)</p>
         </div>
       )}
     </div>

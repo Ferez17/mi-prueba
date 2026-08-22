@@ -7,51 +7,65 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.contenedor {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* Asegura que ocupe toda la pantalla */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Capa de brillos detrás */
+/* ✨ Fondo con brillos animados */
 .cielo {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  overflow: hidden;
+  z-index: 0;
 }
 
-/* Mensaje centrado */
-.mensaje {
+.brillo {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7;
+  /* Núcleo blanco con halo violeta difuso */
+  background: radial-gradient(circle, #ffffff 30%, rgba(179,102,255,0.4) 70%, transparent 100%);
+  box-shadow: 0 0 6px rgba(255,255,255,0.8), 0 0 12px rgba(179,102,255,0.5);
+  animation: estrella 3s infinite alternate ease-in-out;
+}
+
+@keyframes estrella {
+  from { opacity: 0.3; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1.4); }
+}
+
+/* Contenedor principal centrado */
+.contenedor {
   position: relative;
-  z-index: 2;
-  text-align: center;
+  width: 100%;
+  height: 100vh; /* ocupa toda la pantalla */
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.mensaje {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
 .titulo {
   font-family: 'Great Vibes', cursive;
-  font-size: 3rem;
+  font-size: 4.5rem;
   color: #e0b3ff;
   text-shadow: 0 0 10px #b366ff;
   margin-bottom: 0.5rem;
 }
 
 .subtitulo {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.5rem;
-  color: #ffe6ff;
-  text-shadow: 0 0 8px #b366ff;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #f3e5ff;
   margin-bottom: 2rem;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .boton {
@@ -71,82 +85,20 @@ body {
   box-shadow: 0 0 25px #ff66ff;
 }
 
-/* 🌟 Brillos tipo estrellas con parpadeo suave */
-.brillo {
-  position: absolute;
-  background: radial-gradient(circle, #fff 0%, #d9b3ff 40%, transparent 70%);
-  border-radius: 50%;
-  opacity: 0.8;
-  box-shadow: 0 0 6px #fff, 0 0 12px #b366ff, 0 0 20px #6600ff;
-  animation: parpadeo 2.5s infinite ease-in-out;
-}
-
-@keyframes parpadeo {
-  0% { opacity: 0.3; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.6); }
-  100% { opacity: 0.4; transform: scale(1); }
-}
-
-/* Animaciones para el mensaje de amor */
-/* Modal romántico */
+/* Modal */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(75, 0, 130, 0.85); /* morado translúcido */
+  background: rgba(30, 0, 50, 0.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: aparecer 0.5s ease;
   z-index: 3;
-  text-align: center;
-  cursor: pointer;
-  animation: aparecer 1s ease forwards;
-}
-
-.teQuiero {
-  font-family: 'Great Vibes', cursive;
-  font-size: 8rem;
-  color: #ffb3ff;
-  text-shadow: 0 0 15px #ff66ff, 0 0 30px #b366ff;
-  margin-bottom: 1rem;
-  animation: latido 2s infinite ease-in-out;
-}
-
-.corazon-con-estrellas {
-  position: relative;
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-}
-
-.corazon {
-  font-size: 6rem;
-  animation: latido 1.5s infinite ease-in-out;
-  text-shadow: 0 0 20px #ff66ff, 0 0 40px #b366ff;
-  position: relative;
-  z-index: 2;
-}
-
-/* Estrellas brillantes alrededor del corazón */
-.estrella {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, #fff 0%, #ffccff 40%, transparent 70%);
-  border-radius: 50%;
-  box-shadow: 0 0 10px #fff, 0 0 20px #ff66ff;
-  animation: destello 2s infinite alternate;
-  z-index: 1;
-}
-
-.cerrar {
-  margin-top: 2rem;
-  font-size: 1rem;
-  color: #f3e5ff;
-  opacity: 0.7;
 }
 
 @keyframes aparecer {
@@ -154,12 +106,42 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes latido {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.3); }
+.teQuiero {
+  font-family: 'Great Vibes', cursive;
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  z-index: 4;
 }
 
-@keyframes destello {
-  from { opacity: 0.4; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1.5); }
+.gif {
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #fff;
+}
+
+.gifInvertido {
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #fff;
+  transform: scaleX(-1); /* Invierte horizontalmente la imagen */ 
+}
+
+.FlowersCinnamoroll {
+  max-width: 30%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #fff;
+}
+
+.cerrar {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Contenedor de imágenes lado a lado */
+.imagenes {
+  display: inline-flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
