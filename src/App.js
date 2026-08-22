@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from "react";
 import flores from "./img/Flores2.png";
-import patronum from "./img/patronum1.png";
+import patronum from "./img/patronum2.png";
 
 function App() {
   const [modalActivo, setModalActivo] = useState(null);
