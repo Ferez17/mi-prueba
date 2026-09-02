@@ -1,8 +1,8 @@
 body {
   margin: 0;
   background: radial-gradient(circle at top left, #4b0082, #2e003e);
-  overflow: hidden;
-  height: 100vh;
+  overflow-x: hidden;
+  min-height: 100vh;
   color: white;
   font-family: 'Poppins', sans-serif;
 }
@@ -20,7 +20,6 @@ body {
   position: absolute;
   border-radius: 50%;
   opacity: 0.7;
-  /* Núcleo blanco con halo violeta difuso */
   background: radial-gradient(circle, #ffffff 30%, rgba(179,102,255,0.4) 70%, transparent 100%);
   box-shadow: 0 0 6px rgba(255,255,255,0.8), 0 0 12px rgba(179,102,255,0.5);
   animation: estrella 3s infinite alternate ease-in-out;
@@ -35,10 +34,12 @@ body {
 .contenedor {
   position: relative;
   width: 100%;
-  height: 100vh; /* ocupa toda la pantalla */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .mensaje {
@@ -49,7 +50,7 @@ body {
 
 .titulo {
   font-family: 'Great Vibes', cursive;
-  font-size: 4.5rem;
+  font-size: clamp(2rem, 6vw, 4.5rem);
   color: #e0b3ff;
   text-shadow: 0 0 10px #b366ff;
   margin-bottom: 0.5rem;
@@ -57,13 +58,14 @@ body {
 
 .subtitulo {
   font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
   color: #f3e5ff;
   margin-bottom: 2rem;
 }
 
 .botones {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
@@ -73,8 +75,8 @@ body {
   border: none;
   border-radius: 25px;
   color: white;
-  padding: 12px 30px;
-  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   cursor: pointer;
   box-shadow: 0 0 15px #b366ff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -95,8 +97,11 @@ body {
   background: rgba(30, 0, 50, 0.9);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* ✅ permite que el contenido crezca hacia abajo */
   align-items: center;
+  overflow-y: auto; /* ✅ habilita scroll vertical */
+  padding: 2rem 1rem; /* ✅ espacio interno para que no se pegue a los bordes */
+  box-sizing: border-box;
   animation: aparecer 0.5s ease;
   z-index: 3;
 }
@@ -106,94 +111,92 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* .teQuiero {
-  font-family: 'Great Vibes', cursive;
-  font-size: 6rem;
-  margin-bottom: 1rem;
-  z-index: 4;
-} */
+.modal p {
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.6;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: #fff;
+  font-family: 'Dancing Script', cursive;
+  white-space: pre-line;
+}
 
-.gif {
-  max-width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #fff;
+/* Imágenes responsivas */
+.gif, .gifInvertido {
+  max-width: 90%;
+  height: auto;
 }
+
 .gif2 {
-  max-width: 50%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #fff;
-}
-.gifInvertido {
-  max-width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #fff;
-  transform: scaleX(-1); /* Invierte horizontalmente la imagen */ 
+  max-width: 80%;
+  height: auto;
 }
 
 .FlowersCinnamoroll {
-  max-width: 30%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #fff;
+  max-width: 60%;
+  height: auto;
 }
 
-.cerrar {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-/* Contenedor de imágenes lado a lado */
-.imagenes {
-  display: inline-flex;
+.imagenes, .imagenes2 {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
 }
 
-.imagenes2 {
-  display: inline-flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.video {
-  margin-top: 1rem;
-  box-shadow: 0 0 20px #fff;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.modal p {
-  animation: aparecer 1.5s ease;
-}
-
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.modal p {
-  max-width: 900px;              /* Limita el ancho del texto */
-  margin: 0 auto;                /* Centra el bloque */
-  text-align: justify;           /* Justifica el texto */
-  line-height: 1.8;              /* Espaciado entre líneas */
-  font-size: 1.1rem;             /* Tamaño cómodo para lectura */
-  color: #fff;                   /* Mantiene el contraste */
-  font-family: 'Dancing Script', cursive; /* O la fuente que uses */
-  white-space: pre-line;         /* Respeta saltos de línea si los usas */
-}
-
+/* Texto especial */
 .teQuiero {
   font-family: 'Great Vibes', cursive;
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   text-align: center;
   margin-bottom: 1.5rem;
   color: #fff;
 }
 
-.imagenes {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+.video {
+  position: relative;
+  width: 100%;
+  max-width: 900px; /* límite para pantallas grandes */
+  margin: 1rem auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #fff;
+  overflow: hidden;
+}
+
+/* Mantiene proporción 16:9 */
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Truco para mantener la proporción */
+.video::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .boton {
+    width: 100%;
+    text-align: center;
+  }
+
+  .imagenes, .imagenes2 {
+    flex-direction: column;
+  }
+  .modal {
+    padding: 1.5rem 1rem;
+  }
+  .video {
+    max-width: 100%;
+    border-radius: 8px;
+  }
 }

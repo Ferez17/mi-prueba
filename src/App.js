@@ -86,8 +86,6 @@ function App() {
           </p>
           <div className="video">
             <iframe
-              width="560"
-              height="315"
               src="https://youtube.com/embed/Qx7M4J7z3Pk"
               title="YouTube video"
               frameBorder="0"
@@ -110,8 +108,6 @@ function App() {
           </p>
           <div className="video">
             <iframe
-              width="560"
-              height="315"
               src="https://youtube.com/embed/gxHJjLq7C2U"
               title="YouTube video"
               frameBorder="0"
