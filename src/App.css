@@ -106,19 +106,23 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-.teQuiero {
+/* .teQuiero {
   font-family: 'Great Vibes', cursive;
   font-size: 6rem;
   margin-bottom: 1rem;
   z-index: 4;
-}
+} */
 
 .gif {
   max-width: 300px;
   border-radius: 10px;
   box-shadow: 0 0 20px #fff;
 }
-
+.gif2 {
+  max-width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #fff;
+}
 .gifInvertido {
   max-width: 300px;
   border-radius: 10px;
@@ -144,4 +148,52 @@ body {
   gap: 1rem;
   justify-content: center;
   align-items: center;
+}
+
+.imagenes2 {
+  display: inline-flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.video {
+  margin-top: 1rem;
+  box-shadow: 0 0 20px #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal p {
+  animation: aparecer 1.5s ease;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal p {
+  max-width: 900px;              /* Limita el ancho del texto */
+  margin: 0 auto;                /* Centra el bloque */
+  text-align: justify;           /* Justifica el texto */
+  line-height: 1.8;              /* Espaciado entre líneas */
+  font-size: 1.1rem;             /* Tamaño cómodo para lectura */
+  color: #fff;                   /* Mantiene el contraste */
+  font-family: 'Dancing Script', cursive; /* O la fuente que uses */
+  white-space: pre-line;         /* Respeta saltos de línea si los usas */
+}
+
+.teQuiero {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.imagenes {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
