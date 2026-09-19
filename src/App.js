@@ -201,8 +201,8 @@ function App() {
               </p>
 
               <p>
-                No tuve la oportunidad de conocer a tu abuelita,
-                pero sé que ocupa un lugar muy importante
+                No tuve la oportunidad de conocer a tus abuelos,
+                pero sé que ocupan un lugar muy importante
                 en tu corazón.
               </p>
 
