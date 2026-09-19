@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from "react";
 import flores from "./img/Flores2.png";
-import patronum from "./img/patronum2.png";
+import regalo from "./img/Sorpresa1909.png";
 
 function App() {
   const [modalActivo, setModalActivo] = useState(null);
@@ -60,6 +60,17 @@ function App() {
               alt="Cinnamoroll"
               className="gif"
             />
+            </button>
+            <button className="boton boton-recuerdo" onClick={() => setModalActivo("1909")}
+              aria-label="Unas flores Especiales 🌷">
+              <img
+                src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2J4a2hqeTZrNHBncDNpNDl6bnljdGxiaWZhbHl1YmhvMHJhMjI0eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JmOCq0T5qEJyZ3oQj8/giphy.gif"
+                alt="Cinnamoroll"
+                className="gif"
+              />
+              <span className="etiqueta-recuerdo">
+                Unas flores especiales 🌷
+              </span>
             </button>
           </div>
         </div>
@@ -147,6 +158,85 @@ function App() {
             PD: Perdón por mis celos
           </p>
           <p className="cerrar">(Te amo)</p>
+        </div>
+      )}
+      {/* Modal recuerdo de su abuelita */}
+      {modalActivo === "1909" && (
+        <div
+          className="modal modal-recuerdo"
+          onClick={() => setModalActivo(null)}
+        >
+          {/* <button
+            type="button"
+            className="cerrar-recuerdo"
+            onClick={() => setModalActivo(null)}
+            aria-label="Cerrar sorpresa"
+          >
+            ✕
+          </button> */}
+
+          <div className="contenido-recuerdo">
+            <h2 id="titulo-abuelita" className="teQuiero titulo-recuerdo">
+              Para ti, mi amor 💜
+            </h2>
+
+            <p className="introduccion-recuerdo">
+              Ayer te envié unas flores para acompañarte.
+              Hoy quiero acompañarte de otra manera. 🌷
+            </p>
+
+            <div className="imagen-recuerdo">
+              <img
+                src={regalo}
+              />
+            </div>
+
+            <div className="carta-recuerdo">
+              <span className="corazon-recuerdo">♡</span>
+
+              <p>
+                Mi amor, sé que hoy es un día especial para ti.
+                Aunque hayan pasado los años, hay personas
+                cuyo amor permanece en nosotros para siempre.
+              </p>
+
+              <p>
+                No tuve la oportunidad de conocer a tu abuelita,
+                pero sé que ocupa un lugar muy importante
+                en tu corazón.
+              </p>
+
+              <p>
+                No tienes que estar bien todo el tiempo,
+                ni encontrar las palabras para explicar
+                lo que sientes. Si hoy quieres recordar,
+                contarme alguna historia, llorar o simplemente
+                estar en silencio, quiero acompañarte.
+              </p>
+
+              <p>
+                Ojalá pudiera abrazarte ahora mismo.
+                Mientras llega ese momento donde inhundan los recuerdos, te dejo
+                estas flores y todo mi cariño.
+              </p>
+
+              <p className="firma-recuerdo">
+                Te amo, Yess. 💜
+                <br />
+                Con amor, F.
+              </p>
+
+              <span className="corazon-recuerdo">♡</span>
+            </div>
+
+            {/* <button
+              type="button"
+              className="boton-volver"
+              onClick={() => setModalActivo(null)}
+            >
+              Volver a mis sorpresas 💜
+            </button> */}
+          </div>
         </div>
       )}
     </div>
