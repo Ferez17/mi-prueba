@@ -201,23 +201,15 @@ function App() {
               </p>
 
               <p>
-                No tuve la oportunidad de conocer a tus abuelos,
-                pero sé que ocupan un lugar muy importante
-                en tu corazón.
+                No necesitas encontrar las palabras para explicarme cómo te sientes.
+                Si quieres hablar, te escucharé. Si prefieres el silencio, también está bien.
+                No tienes que hacer nada especial para recibir mi cariño.
               </p>
 
               <p>
-                No tienes que estar bien todo el tiempo,
-                ni encontrar las palabras para explicar
-                lo que sientes. Si hoy quieres recordar,
-                contarme alguna historia, llorar o simplemente
-                estar en silencio, quiero acompañarte.
-              </p>
-
-              <p>
-                Ojalá pudiera abrazarte ahora mismo.
-                Mientras llega ese momento donde inhundan los recuerdos, te dejo
-                estas flores y todo mi cariño.
+                Ojalá pudiera abrazarte ahora mismo. 
+                Mientras llega ese momento, te dejo estas flores,
+                un abrazo desde la distancia y todo mi amor.
               </p>
 
               <p className="firma-recuerdo">
